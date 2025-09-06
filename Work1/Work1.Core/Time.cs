@@ -6,13 +6,14 @@ namespace Work1.Core
     
     public class Time
     {
+        //private fields
         private int _hour;
         private int _millisecond;
         private int _minute;
         private int _second;
 
 
-
+        //properties
         public int Hour
         {
             get => _hour;
@@ -53,6 +54,8 @@ namespace Work1.Core
                 _second = value;
             }
         }
+
+        //constructors
         public Time() : this(0, 0, 0, 0) { }
         public Time(int hour) : this(hour, 0, 0, 0) { }
         public Time(int hour, int minute) : this(hour, minute, 0, 0) { }
@@ -66,12 +69,13 @@ namespace Work1.Core
 
         }
 
-        // Validations
-        public static bool ValidHour(int hour) => hour >= 0 && hour <= 23;
-        public static bool ValidMinute(int minute) => minute >= 0 && minute <= 59;
-        public static bool ValidSecond(int second) => second >= 0 && second <= 59;
-        public static bool ValidMillisecond(int millisecond) => millisecond >= 0 && millisecond <= 999;
+        // Private Validations
+        private static bool ValidHour(int hour) => hour >= 0 && hour <= 23;
+        private static bool ValidMinute(int minute) => minute >= 0 && minute <= 59;
+        private static bool ValidSecond(int second) => second >= 0 && second <= 59;
+        private static bool ValidMillisecond(int millisecond) => millisecond >= 0 && millisecond <= 999;
 
+        //Conversions
         public long ToMilliseconds()
         {
             return (long)Hour * 3600000 +
